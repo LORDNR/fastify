@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.33
+    container_name: Fastify-mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: 'fastify'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: '12345'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: '12345'
+    volumes:
+      - .db_data:/var/lib/postgresql/data
+    networks:
+      - web
+
+networks:
+  web:
+    external: true 
