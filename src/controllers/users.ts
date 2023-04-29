@@ -1,7 +1,6 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { UserEntity } from '../database/entites'
+import { UserEntity, UserType } from '../database/entites'
 import { Connection, getConnection } from 'typeorm';
-import { UserType } from '../database/entites/users.entity';
 
 const find = async (request: FastifyRequest<{ Querystring: { id: number, email: string } }>, reply: FastifyReply) => {
     try {
